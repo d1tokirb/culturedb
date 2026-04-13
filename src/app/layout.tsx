@@ -1,9 +1,7 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
 import './globals.css'
 import { AuthProvider } from '@/context/AuthContext'
-
-const inter = Inter({ subsets: ['latin'] })
+import { Navbar } from '@/components/layout/Navbar'
 
 export const metadata: Metadata = {
   title: 'CultureDB',
@@ -13,8 +11,11 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <AuthProvider>{children}</AuthProvider>
+      <body>
+        <AuthProvider>
+          <Navbar />
+          <main className="max-w-5xl mx-auto px-4 py-8">{children}</main>
+        </AuthProvider>
       </body>
     </html>
   )
