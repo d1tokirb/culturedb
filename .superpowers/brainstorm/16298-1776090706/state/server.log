@@ -1,0 +1,8 @@
+{"type":"server-started","port":61774,"host":"127.0.0.1","url_host":"localhost","url":"http://localhost:61774","screen_dir":"/Users/ditokirb/Dev/media-rater/.superpowers/brainstorm/16298-1776090706/content","state_dir":"/Users/ditokirb/Dev/media-rater/.superpowers/brainstorm/16298-1776090706/state"}
+{"type":"screen-added","file":"/Users/ditokirb/Dev/media-rater/.superpowers/brainstorm/16298-1776090706/content/audience.html"}
+{"type":"screen-added","file":"/Users/ditokirb/Dev/media-rater/.superpowers/brainstorm/16298-1776090706/content/waiting-1.html"}
+{"type":"screen-added","file":"/Users/ditokirb/Dev/media-rater/.superpowers/brainstorm/16298-1776090706/content/rating-scale.html"}
+{"type":"screen-added","file":"/Users/ditokirb/Dev/media-rater/.superpowers/brainstorm/16298-1776090706/content/waiting-2.html"}
+{"type":"screen-added","file":"/Users/ditokirb/Dev/media-rater/.superpowers/brainstorm/16298-1776090706/content/name.html"}
+{"type":"screen-added","file":"/Users/ditokirb/Dev/media-rater/.superpowers/brainstorm/16298-1776090706/content/waiting-3.html"}
+{"type":"server-stopped","reason":"owner process exited"}

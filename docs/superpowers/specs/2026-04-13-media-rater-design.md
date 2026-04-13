@@ -1,4 +1,4 @@
-# Media Rater Platform — Design Spec
+# CultureDB — Design Spec
 **Date:** 2026-04-13  
 **Status:** Approved
 
@@ -183,4 +183,4 @@ Rating averages and score distributions are stored directly on each media docume
 ---
 
 ## Name
-TBD — to be decided by the team.
+**CultureDB**

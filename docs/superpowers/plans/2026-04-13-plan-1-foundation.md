@@ -1,4 +1,4 @@
-# Media Rater — Plan 1: Foundation
+# CultureDB — Plan 1: Foundation
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
@@ -409,7 +409,7 @@ import { AuthProvider } from '@/context/AuthContext'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Media Rater',
+  title: 'CultureDB',
   description: 'Rate everything.',
 }
 
@@ -751,7 +751,7 @@ export function Navbar() {
     <nav className="sticky top-0 z-50 bg-white border-b border-gray-200 px-4 py-3">
       <div className="max-w-5xl mx-auto flex items-center gap-4">
         <Link href="/" className="font-bold text-lg text-gray-900 shrink-0">
-          MediaRater
+          CultureDB
         </Link>
         <SearchBar />
         <div className="flex items-center gap-3 shrink-0">
@@ -804,7 +804,7 @@ import { Navbar } from '@/components/layout/Navbar'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Media Rater',
+  title: 'CultureDB',
   description: 'Rate everything.',
 }
 

@@ -1,0 +1,33 @@
+<h2>What's the rating scale?</h2>
+<p class="subtitle">This affects how bar graphs and rankings work throughout the whole app</p>
+
+<div class="options">
+  <div class="option" data-choice="a" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>1–10</h3>
+      <p>Classic. Lots of granularity. Works well for bar graphs showing score distribution. IMDB uses this.</p>
+    </div>
+  </div>
+  <div class="option" data-choice="b" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>1–5 Stars</h3>
+      <p>Simple and familiar. Easy to rate quickly. Less nuance but lower friction.</p>
+    </div>
+  </div>
+  <div class="option" data-choice="c" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="content">
+      <h3>1–100</h3>
+      <p>Maximum granularity. Great for ranked lists (your #1 show scored 94, #2 scored 91). Letterboxd uses a 0.5–5 variant.</p>
+    </div>
+  </div>
+  <div class="option" data-choice="d" onclick="toggleSelect(this)">
+    <div class="letter">D</div>
+    <div class="content">
+      <h3>Custom / Flexible</h3>
+      <p>Different scales per media type (e.g. stars for movies, 1–10 for games). More complex to implement but flexible.</p>
+    </div>
+  </div>
+</div>
