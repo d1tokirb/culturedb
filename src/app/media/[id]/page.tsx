@@ -7,6 +7,7 @@ import { submitRating, getUserRating } from '@/lib/ratings'
 import { useAuth } from '@/context/AuthContext'
 import { ScoreDistributionChart } from '@/components/media/ScoreDistributionChart'
 import { RatingModal } from '@/components/media/RatingModal'
+import { WatchlistToggle } from '@/components/media/WatchlistToggle'
 import type { Media, Rating, WatchStatus } from '@/types'
 
 const TYPE_LABELS: Record<string, string> = {
@@ -94,15 +95,18 @@ function MediaDetailContent() {
             </p>
           )}
           {firebaseUser && (
-            <button
-              onClick={() => setRatingOpen(true)}
-              className="py-2 px-5 rounded-lg text-sm font-semibold transition-colors"
-              style={{ backgroundColor: '#e8a027', color: '#0c0c0e' }}
-              onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#f0b035')}
-              onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#e8a027')}
-            >
-              {userRating ? `Your rating: ${userRating.score}` : 'Rate this'}
-            </button>
+            <div className="flex items-center gap-3 flex-wrap">
+              <button
+                onClick={() => setRatingOpen(true)}
+                className="py-2 px-5 rounded-lg text-sm font-semibold transition-colors"
+                style={{ backgroundColor: '#e8a027', color: '#0c0c0e' }}
+                onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#f0b035')}
+                onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#e8a027')}
+              >
+                {userRating ? `Your rating: ${userRating.score}` : 'Rate this'}
+              </button>
+              <WatchlistToggle mediaId={id} />
+            </div>
           )}
         </div>
       </div>
