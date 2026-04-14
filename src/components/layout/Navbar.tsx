@@ -48,6 +48,15 @@ export function Navbar() {
                 + Add
               </Link>
               <Link
+                href="/groups/new"
+                className="text-sm transition-colors"
+                style={{ color: '#8a8a96' }}
+                onMouseEnter={(e: any) => (e.currentTarget.style.color = '#f0ede8')}
+                onMouseLeave={(e: any) => (e.currentTarget.style.color = '#8a8a96')}
+              >
+                Groups
+              </Link>
+              <Link
                 href={userDoc ? `/profile/${userDoc.username}` : '/auth/onboarding'}
                 className="text-sm transition-colors"
                 style={{ color: '#8a8a96' }}

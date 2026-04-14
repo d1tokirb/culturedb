@@ -5,7 +5,7 @@ import { useParams, useSearchParams } from 'next/navigation'
 import { getMedia } from '@/lib/media'
 import { submitRating, getUserRating } from '@/lib/ratings'
 import { useAuth } from '@/context/AuthContext'
-import { ScoreDistributionChart } from '@/components/media/ScoreDistributionChart'
+import { RatingTabs } from '@/components/media/RatingTabs'
 import { RatingModal } from '@/components/media/RatingModal'
 import { WatchlistToggle } from '@/components/media/WatchlistToggle'
 import type { Media, Rating, WatchStatus } from '@/types'
@@ -112,21 +112,7 @@ function MediaDetailContent() {
       </div>
 
       {/* Score distribution */}
-      {media.rating_count > 0 && (
-        <div
-          className="rounded-2xl p-5 mb-6"
-          style={{ backgroundColor: '#161618', border: '1px solid #2a2a2e' }}
-        >
-          <p className="text-xs uppercase tracking-widest mb-4" style={{ color: '#8a8a96' }}>
-            Score Distribution
-          </p>
-          <ScoreDistributionChart
-            distribution={media.score_distribution}
-            avgScore={media.avg_score}
-            ratingCount={media.rating_count}
-          />
-        </div>
-      )}
+      <RatingTabs media={media} />
 
       {/* Metadata */}
       {Object.keys(media.metadata).length > 0 && (
