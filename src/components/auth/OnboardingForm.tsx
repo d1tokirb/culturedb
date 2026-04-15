@@ -14,7 +14,7 @@ const inputStyle = {
 }
 
 export function OnboardingForm() {
-  const { firebaseUser } = useAuth()
+  const { firebaseUser, refreshUserDoc } = useAuth()
   const router = useRouter()
   const [username, setUsername] = useState('')
   const [bio, setBio] = useState('')
@@ -56,6 +56,7 @@ export function OnboardingForm() {
       following: [],
     })
 
+    await refreshUserDoc()
     router.push('/')
   }
 
