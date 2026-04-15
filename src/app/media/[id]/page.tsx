@@ -6,6 +6,7 @@ import { getMedia } from '@/lib/media'
 import { submitRating, getUserRating } from '@/lib/ratings'
 import { useAuth } from '@/context/AuthContext'
 import { RatingTabs } from '@/components/media/RatingTabs'
+import { SeasonRatings } from '@/components/media/SeasonRatings'
 import Image from 'next/image'
 import { RatingModal } from '@/components/media/RatingModal'
 import { WatchlistToggle } from '@/components/media/WatchlistToggle'
@@ -114,6 +115,7 @@ function MediaDetailContent() {
 
       {/* Score distribution */}
       <RatingTabs media={media} />
+      <SeasonRatings media={media} userId={firebaseUser?.uid ?? null} />
 
       {/* Metadata */}
       {Object.keys(media.metadata).length > 0 && (

@@ -59,25 +59,28 @@ export async function submitRating({
     const mediaSnap = await tx.get(mediaRef)
     if (!mediaSnap.exists()) throw new Error('Media not found')
 
-    const mediaData = mediaSnap.data()
-    const { avg, count } = computeNewAggregate(
-      { avg: mediaData.avg_score, count: mediaData.rating_count },
-      score,
-      existing?.score ?? null
-    )
+    // Only update aggregate scores for show-level ratings (sub_id === null)
+    if (subId === null) {
+      const mediaData = mediaSnap.data()
+      const { avg, count } = computeNewAggregate(
+        { avg: mediaData.avg_score, count: mediaData.rating_count },
+        score,
+        existing?.score ?? null
+      )
 
-    const dist = { ...mediaData.score_distribution }
-    if (existing) {
-      const oldBucket = scoreToDistributionKey(existing.score)
-      dist[oldBucket] = Math.max(0, (dist[oldBucket] ?? 0) - 1)
+      const dist = { ...mediaData.score_distribution }
+      if (existing) {
+        const oldBucket = scoreToDistributionKey(existing.score)
+        dist[oldBucket] = Math.max(0, (dist[oldBucket] ?? 0) - 1)
+      }
+      dist[bucket] = (dist[bucket] ?? 0) + 1
+
+      tx.update(mediaRef, {
+        avg_score: avg,
+        rating_count: count,
+        score_distribution: dist,
+      })
     }
-    dist[bucket] = (dist[bucket] ?? 0) + 1
-
-    tx.update(mediaRef, {
-      avg_score: avg,
-      rating_count: count,
-      score_distribution: dist,
-    })
 
     if (existing) {
       tx.update(doc(db, 'ratings', existing.id), {
@@ -102,6 +105,19 @@ export async function submitRating({
       })
     }
   })
+}
+
+export async function getUserSeasonRatings(userId: string, mediaId: string): Promise<Rating[]> {
+  const snap = await getDocs(
+    query(
+      collection(db, 'ratings'),
+      where('user_id', '==', userId),
+      where('media_id', '==', mediaId)
+    )
+  )
+  return snap.docs
+    .map((d) => ({ id: d.id, ...d.data() } as Rating))
+    .filter((r) => r.sub_id !== null)
 }
 
 export async function getMediaRatings(mediaId: string): Promise<Rating[]> {
