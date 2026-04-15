@@ -48,7 +48,7 @@ export function Navbar() {
                 + Add
               </Link>
               <Link
-                href="/groups/new"
+                href="/groups"
                 className="text-sm transition-colors"
                 style={{ color: '#8a8a96' }}
                 onMouseEnter={(e: any) => (e.currentTarget.style.color = '#f0ede8')}
