@@ -6,6 +6,7 @@ import { getMedia } from '@/lib/media'
 import { submitRating, getUserRating } from '@/lib/ratings'
 import { useAuth } from '@/context/AuthContext'
 import { RatingTabs } from '@/components/media/RatingTabs'
+import Image from 'next/image'
 import { RatingModal } from '@/components/media/RatingModal'
 import { WatchlistToggle } from '@/components/media/WatchlistToggle'
 import type { Media, Rating, WatchStatus } from '@/types'
@@ -70,11 +71,11 @@ function MediaDetailContent() {
       {/* Header */}
       <div className="flex gap-6 mb-8">
         <div
-          className="w-32 h-48 rounded-xl overflow-hidden shrink-0 flex items-center justify-center"
+          className="relative w-32 h-48 rounded-xl overflow-hidden shrink-0 flex items-center justify-center"
           style={{ backgroundColor: '#161618', border: '1px solid #2a2a2e' }}
         >
           {media.poster_url ? (
-            <img src={media.poster_url} alt={media.title} className="w-full h-full object-cover" />
+            <Image src={media.poster_url} alt={media.title} fill className="object-cover" />
           ) : (
             <span style={{ color: '#2a2a2e', fontSize: '32px' }}>▪</span>
           )}

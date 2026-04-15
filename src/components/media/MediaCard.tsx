@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import type { Media } from '@/types'
 
 interface Props {
@@ -20,11 +21,11 @@ export function MediaCard({ media }: Props) {
       onMouseLeave={(e: any) => (e.currentTarget.style.backgroundColor = 'transparent')}
     >
       <div
-        className="w-14 h-20 rounded-lg overflow-hidden shrink-0 flex items-center justify-center"
+        className="relative w-14 h-20 rounded-lg overflow-hidden shrink-0 flex items-center justify-center"
         style={{ backgroundColor: '#161618', border: '1px solid #2a2a2e' }}
       >
         {media.poster_url ? (
-          <img src={media.poster_url} alt={media.title} className="w-full h-full object-cover" />
+          <Image src={media.poster_url} alt={media.title} fill className="object-cover" />
         ) : (
           <span style={{ color: '#2a2a2e', fontSize: '20px' }}>▪</span>
         )}

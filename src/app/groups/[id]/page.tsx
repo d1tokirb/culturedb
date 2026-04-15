@@ -7,6 +7,7 @@ import { getGroup, joinGroup, aggregateMemberRatings } from '@/lib/groups'
 import { getUserRatings, getMediaByIds } from '@/lib/profile'
 import { GroupRatingChart } from '@/components/groups/GroupRatingChart'
 import Link from 'next/link'
+import Image from 'next/image'
 import type { Group, Media, Rating } from '@/types'
 
 export default function GroupPage() {
@@ -116,7 +117,9 @@ export default function GroupPage() {
             <div key={media.id} className="rounded-2xl p-5" style={{ backgroundColor: '#161618', border: '1px solid #2a2a2e' }}>
               <div className="flex items-center gap-3 mb-4">
                 {media.poster_url && (
-                  <img src={media.poster_url} alt={media.title} className="w-10 h-14 object-cover rounded-lg shrink-0" />
+                  <div className="relative w-10 h-14 rounded-lg overflow-hidden shrink-0">
+                    <Image src={media.poster_url} alt={media.title} fill className="object-cover" />
+                  </div>
                 )}
                 <Link
                   href={`/media/${media.id}`}
